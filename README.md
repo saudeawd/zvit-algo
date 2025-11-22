@@ -28,7 +28,9 @@
 Складність операцій:
 
 findStudentsByBirthday: O(n) - повний перебір списку
+
 updateGroupByEmail: O(n) - пошук студента лінійним переглядом
+
 findGroupWithMostSameBirthdays: O(n) - один прохід з підрахунком
 
 Переваги:
@@ -45,12 +47,15 @@ findGroupWithMostSameBirthdays: O(n) - один прохід з підрахун
 Принцип роботи: Використовує дві hash-таблиці для прискорення операцій:
 
 emailMap: HashMap<String, Student> - індекс по email для швидкого пошуку студента
+
 birthMap: HashMap<String, List<Student>> - індекс по датах народження (ключ формату "month-day")
 
 Складність операцій:
 
 findStudentsByBirthday: O(1) в середньому - пряме звертання до hash-таблиці
+
 updateGroupByEmail: O(1) в середньому - пошук через emailMap
+
 findGroupWithMostSameBirthdays: O(n) - потрібен перебір для підрахунку
 
 Переваги:
@@ -67,13 +72,17 @@ findGroupWithMostSameBirthdays: O(n) - потрібен перебір для п
 Принцип роботи: Повна індексація всіх операцій з використанням трьох структур даних:
 
 emailMap: HashMap<String, Student> - індекс по email
+
 birthMap: HashMap<String, List<Student>> - індекс по датах народження
+
 groupBirthCountMap: HashMap<String, HashMap<String, Integer>> - вкладена структура для підрахунку кількості студентів з однаковою датою народження в кожній групі
 
 Складність операцій:
 
 findStudentsByBirthday: O(1) в середньому
+
 updateGroupByEmail: O(1) в середньому - з автоматичним оновленням індексів
+
 findGroupWithMostSameBirthdays: O(g×b) де g - кількість груп, b - середня кількість унікальних дат народження на групу (зазвичай << n)
 
 Переваги:
